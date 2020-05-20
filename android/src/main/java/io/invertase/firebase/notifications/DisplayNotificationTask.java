@@ -23,7 +23,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-import java.net.HttpURLConnection;
+import javax.net.ssl.HttpsURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -542,7 +542,7 @@ public class DisplayNotificationTask extends AsyncTask<Void, Void, Void> {
 
   private Bitmap getBitmapFromUrl(String imageUrl) {
     try {
-      HttpURLConnection connection = (HttpURLConnection) new URL(imageUrl).openConnection();
+      HttpsURLConnection connection = (HttpsURLConnection) new URL(imageUrl).openConnection();
       connection.setDoInput(true);
       connection.connect();
       return BitmapFactory.decodeStream(connection.getInputStream());
